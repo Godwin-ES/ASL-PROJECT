@@ -4,7 +4,6 @@ import torch
 import joblib
 import numpy as np
 from PIL import Image
-import cv2
 from torchvision import transforms
 from cvzone.HandTrackingModule import HandDetector
 
@@ -50,7 +49,7 @@ def predict_sign(image):
     y2 = min(y + h + pad, image.shape[0])
 
     hand_crop = image[y1:y2, x1:x2]
-    hand_rgb = cv2.cvtColor(hand_crop, cv2.COLOR_BGR2RGB)
+    hand_rgb = hand_crop[..., ::-1]  # BGR to RGB
     img_pil = Image.fromarray(hand_rgb)
 
     img_tensor = transform(img_pil).unsqueeze(0)
