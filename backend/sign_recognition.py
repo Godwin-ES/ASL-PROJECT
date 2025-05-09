@@ -1,6 +1,7 @@
 # backend/sign_recognition.py
 
 import torch
+import os
 import joblib
 import numpy as np
 from PIL import Image
@@ -10,8 +11,8 @@ from cvzone.HandTrackingModule import HandDetector
 from backend.model_definition import ASLModel
     
 # === Load model, encoder, transforms ===
-model_path = r"backend\model\asl_model.pth"
-encoder_path = r"backend\encoder\asl_enc.pkl"
+model_path = os.path.join("backend", "model", "asl_model.pth")
+encoder_path = os.path.join("backend", "encoder", "asl_enc.pkl")
 
 asl_model = ASLModel(num_classes=26, model_name='efficientnet_b0')
 asl_model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))
