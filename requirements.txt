@@ -1,0 +1,17 @@
+numpy
+joblib
+opencv-python
+pydub
+cvzone
+Pillow
+streamlit
+streamlit-webrtc
+streamlit-mic-recorder
+av
+torch
+torchvision
+torchmetrics
+timm
+pytorch-lightning
+gTTS
+SpeechRecognition
