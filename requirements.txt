@@ -1,6 +1,6 @@
 numpy
 joblib
-opencv-python
+opencv-python-headless
 pydub
 cvzone
 Pillow
