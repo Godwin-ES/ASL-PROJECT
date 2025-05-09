@@ -1,6 +1,7 @@
 import streamlit as st
 import av
 from PIL import Image, ImageDraw, ImageFont
+import cv2
 import numpy as np
 import os
 from streamlit_webrtc import webrtc_streamer, WebRtcMode
@@ -33,20 +34,22 @@ if user_type == "Signer":
 
             # Only generate and save audio if a valid letter
             if predicted_letter.isalpha():
-                img_rgb = Image.fromarray(img[..., ::-1])  # Convert BGR to RGB
-                draw = ImageDraw.Draw(img_rgb)
-                draw.text((50, 50), predicted_letter, font=ImageFont.truetype(size=64), fill=(0, 255, 0))
-                img = np.array(img_rgb)[..., ::-1]  # Convert back to BGR
+                cv2.putText(img, predicted_letter, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+                #img_rgb = Image.fromarray(img[..., ::-1])  # Convert BGR to RGB
+                #draw = ImageDraw.Draw(img_rgb)
+                #draw.text((50, 50), predicted_letter, font=ImageFont.truetype(size=64), fill=(0, 255, 0))
+                #img = np.array(img_rgb)[..., ::-1]  # Convert back to BGR
                 if predicted_letter != previous_letter:
                     with open(text_path, "w") as file:
                         file.write(predicted_letter)
                     previous_letter = predicted_letter
                 
             else:
-                img_rgb = Image.fromarray(img[..., ::-1])  # Convert BGR to RGB
-                draw = ImageDraw.Draw(img_rgb)
-                draw.text((50, 50), predicted_letter, fill=(255, 0, 0))
-                img = np.array(img_rgb)[..., ::-1]  # Convert back to BGR                
+                cv2.putText(img, predicted_letter, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2) 
+                #img_rgb = Image.fromarray(img[..., ::-1])  # Convert BGR to RGB
+                #draw = ImageDraw.Draw(img_rgb)
+                #draw.text((50, 50), predicted_letter, fill=(255, 0, 0))
+                #img = np.array(img_rgb)[..., ::-1]  # Convert back to BGR                
 
         except Exception as e:
             st.warning(f"Error: {e}")
