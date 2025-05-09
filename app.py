@@ -35,7 +35,7 @@ if user_type == "Signer":
             if predicted_letter.isalpha():
                 img_rgb = Image.fromarray(img[..., ::-1])  # Convert BGR to RGB
                 draw = ImageDraw.Draw(img_rgb)
-                draw.text((50, 50), predicted_letter, fill=(0, 255, 0))
+                draw.text((50, 50), predicted_letter, font=ImageFont.truetype(size=64), fill=(0, 255, 0))
                 img = np.array(img_rgb)[..., ::-1]  # Convert back to BGR
                 if predicted_letter != previous_letter:
                     with open(text_path, "w") as file:
