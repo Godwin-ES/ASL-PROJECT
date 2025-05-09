@@ -1,5 +1,6 @@
 numpy
 joblib
+opencv-python-headless
 mediapipe
 pydub
 cvzone
