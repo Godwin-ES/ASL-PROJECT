@@ -3,7 +3,7 @@
 import os
 from typing import List, Tuple
 
-ASL_VIDEO_DIR = r"backend\videos"
+ASL_VIDEO_DIR = r"backend/videos"
 
 def get_asl_video(text: str) -> List[Tuple[str, List[str]]]:
     result = []
