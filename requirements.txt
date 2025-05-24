@@ -8,7 +8,6 @@ cvzone
 Pillow
 streamlit
 streamlit-webrtc
-streamlit-mic-recorder
 av
 torch
 torchvision
