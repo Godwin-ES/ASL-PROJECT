@@ -3,7 +3,6 @@ joblib
 scikit-learn
 opencv-contrib-python-headless
 mediapipe
-pydub
 cvzone
 Pillow
 streamlit
