@@ -21,4 +21,4 @@ def speech_to_text(audio_bytes: bytes) -> str:
         return text.upper()
     except Exception as e:
         print(f"[STT ERROR] {e}")
-        return ""
+        return e
