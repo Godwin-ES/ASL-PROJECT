@@ -4,6 +4,7 @@ from PIL import Image, ImageDraw, ImageFont
 import cv2
 import numpy as np
 import os
+from st_audiorec import st_audiorec
 from streamlit_webrtc import webrtc_streamer, WebRtcMode
 from streamlit_mic_recorder import mic_recorder
 
@@ -84,14 +85,14 @@ else:
     st.subheader("Non-Signer Mode")
     st.info("Click to record your voice. The app will transcribe and show corresponding ASL signs.")
 
-    audio = mic_recorder(start_prompt="🎤 Start Recording", stop_prompt="⏹️ Stop Recording", key="rec")
+    audio = st_audiorec()
         
     if audio:
-        audio_bytes = audio['bytes']
+        #audio_bytes = audio['bytes']
 
         # Transcribe speech using backend STT
         with st.spinner("Transcribing..."):
-            recognized_text = speech_to_text(audio_bytes)
+            recognized_text = speech_to_text(audio)
 
         if not recognized_text.strip():
             st.warning("No speech recognized. Please try again.")
