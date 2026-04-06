@@ -82,7 +82,7 @@ if user_type == "Signer":
     webrtc_ctx = webrtc_streamer(
         key="signer-mode",
         video_frame_callback=video_frame_callback,
-        rtc_configuration={"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]},
+        rtc_configuration={"iceServers": [{"urls": ["stun:stun.telnyx.com:3478"]}]},
         media_stream_constraints={"video": True, "audio": False},
     )
     
