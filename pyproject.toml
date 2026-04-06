@@ -11,7 +11,7 @@ dependencies = [
     "joblib>=1.5.3",
     "mediapipe==0.10.14",
     "numpy>=2.4.4",
-    "opencv-contrib-python>=4.13.0.92",
+    "opencv-contrib-python-headless",
     "pillow>=12.2.0",
     "pytorch-lightning>=2.6.1",
     "scikit-learn>=1.8.0",
